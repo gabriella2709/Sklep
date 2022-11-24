@@ -1,0 +1,17 @@
+D:\Moje_projekty\Sklep\bin\Debug\net6.0\Sklep.exe
+D:\Moje_projekty\Sklep\bin\Debug\net6.0\Sklep.deps.json
+D:\Moje_projekty\Sklep\bin\Debug\net6.0\Sklep.runtimeconfig.json
+D:\Moje_projekty\Sklep\bin\Debug\net6.0\Sklep.dll
+D:\Moje_projekty\Sklep\bin\Debug\net6.0\Sklep.pdb
+D:\Moje_projekty\Sklep\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Moje_projekty\Sklep\obj\Debug\net6.0\Sklep.csproj.AssemblyReference.cache
+D:\Moje_projekty\Sklep\obj\Debug\net6.0\Sklep.GeneratedMSBuildEditorConfig.editorconfig
+D:\Moje_projekty\Sklep\obj\Debug\net6.0\Sklep.AssemblyInfoInputs.cache
+D:\Moje_projekty\Sklep\obj\Debug\net6.0\Sklep.AssemblyInfo.cs
+D:\Moje_projekty\Sklep\obj\Debug\net6.0\Sklep.csproj.CoreCompileInputs.cache
+D:\Moje_projekty\Sklep\obj\Debug\net6.0\Sklep.csproj.CopyComplete
+D:\Moje_projekty\Sklep\obj\Debug\net6.0\Sklep.dll
+D:\Moje_projekty\Sklep\obj\Debug\net6.0\refint\Sklep.dll
+D:\Moje_projekty\Sklep\obj\Debug\net6.0\Sklep.pdb
+D:\Moje_projekty\Sklep\obj\Debug\net6.0\Sklep.genruntimeconfig.cache
+D:\Moje_projekty\Sklep\obj\Debug\net6.0\ref\Sklep.dll
