@@ -13,6 +13,19 @@ public class Menu
         answer = Console.ReadLine();
     }
 
+    public void Zakup()
+    {
+        Console.WriteLine("KOD KRESKOWY LUB WYDRUK PARAGONU(P):");
+        answer = Console.ReadLine();
+    }
+
+    public void Calc()
+    {
+        var wybrane = new List<Wybrane>();
+        
+        
+    }
+
     public bool IsCorrect(string answer)
     {
         if (int.TryParse(answer, out int x) && x > 0 && x < 3)
@@ -20,4 +33,6 @@ public class Menu
         
         return true;
         }
+
+    
 }

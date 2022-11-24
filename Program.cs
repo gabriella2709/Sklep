@@ -22,8 +22,14 @@ while (true)
     if (!menu.IsCorrect(menu.answer) && menu.answer == "2")
     {
         Console.Clear();
-        Console.WriteLine("Zakupy");
-        menu.Start();
+        menu.Zakup();
+        while (true)
+        {
+            kasa.IsCorrectCode(menu.answer);
+            if (menu.answer == "p" || menu.answer == "P")
+                break;
+        }
+        
     }
     
     if(menu.IsCorrect(menu.answer) && menu.answer == "3")
