@@ -2,7 +2,7 @@
 
 public class Menu
 {
-    public string answer { get; set; }
+    public string? answer { get; set; }
     public void Start()
     {
         Console.WriteLine("WYBIERZ OPCJĘ:");
@@ -19,20 +19,15 @@ public class Menu
         answer = Console.ReadLine();
     }
 
-    public void Calc()
-    {
-        var wybrane = new List<Wybrane>();
-        
-        
-    }
+
 
     public bool IsCorrect(string answer)
     {
         if (int.TryParse(answer, out int x) && x > 0 && x < 3)
             return false;
-        
-        return true;
-        }
 
-    
+        return false;
+    }
+
+
 }
