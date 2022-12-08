@@ -5,7 +5,11 @@ using Sklep;
 var kasa = new Kasa();
 kasa.CreateProduct();
 var menu = new Menu();
-var wybrane = new List<Wybrane>();
+
+// The 'Wybrane' class is completely unnecessary.
+// After all, the shopping cart (paragon) contains the same products as in the store.
+// One 'Product' class is enough!!!
+var wybrane = new List<Product>();
 var products = kasa.AllProducts;
 menu.Start();
 
@@ -29,10 +33,25 @@ while (true)
         menu.Zakup();
         if (menu.answer == "P")
         {
-            foreach (var w in wybrane)
-            {
 
-            }
+                // We must have two values: cena_laczna (this is a sum of all values of cena_brutto of products in paragon)
+                // and total_vat (this is a sum of all values of VAT of products in paragon)
+                // So we have to options to choose:
+                // 1 option (using loop)
+                decimal cena_laczna = 0;
+                decimal total_vat = 0;
+                foreach (var p in wybrane)
+                {
+                    cena_laczna += p.Cena_brutto;
+                    total_vat += p.VAT;
+                }
+                
+                // 2 option (using 'Sum' method)
+                cena_laczna = wybrane.Sum(w => w.Cena_brutto);
+                total_vat = wybrane.Sum(w => w.VAT);
+                
+                // Please choose one of those options (whatever you want)
+
         }
         else if (menu.answer == "p")
         {
@@ -49,13 +68,13 @@ while (true)
         if (menu.answer == p.Id)
         {
 
-            new Wybrane().Nazwa = p.Nazwa;
-            new Wybrane().Podatek = p.Cena_netto * 0.23m;
-            new Wybrane().Cena_brutto = Math.Round(p.Cena_netto + new Wybrane().Podatek, 2);
-            Console.WriteLine(p.Nazwa);
-            Console.WriteLine("CENA ŁĄCZNA: " + new Wybrane().Cena_brutto + " zł");
-            wybrane.Add(new Wybrane());
-            menu.Zakup();
+            // new Wybrane().Nazwa = p.Nazwa;
+            // new Wybrane().Podatek = p.Cena_netto * 0.23m;
+            // new Wybrane().Cena_brutto = Math.Round(p.Cena_netto + new Wybrane().Podatek, 2);
+            // Console.WriteLine(p.Nazwa);
+            // Console.WriteLine("CENA ŁĄCZNA: " + new Wybrane().Cena_brutto + " zł");
+            // wybrane.Add(new Wybrane());
+            // menu.Zakup();
 
 
         }

@@ -1,5 +1,10 @@
 ﻿namespace Sklep;
 
+
+
+// This class is completely unnecessary.
+// After all, the shopping cart contains the same products as in the store.
+// One 'Product' class is enough!!!
 public class Wybrane
 {
     public string? Nazwa { get; set; }

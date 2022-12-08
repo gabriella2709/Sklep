@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "L/oYqBQsIku1Yjx5Eeu3IB8Hi8CA/9yW7cexlSTJyQfghka/v0DsVoksxkk5/qmpElMUndIdsuXRKiROIDZDww==",
+  "dgSpecHash": "1hvfdrk1HN916JZM07P7c6jZgObECPTY4LilZ4FyW0VTWjIZssBYppsNZv1Pf7lVF7aLHKNU66PlKZ3gWLIw3A==",
   "success": true,
-  "projectFilePath": "D:\\Moje_projekty\\Sklep\\Sklep.csproj",
+  "projectFilePath": "C:\\Users\\aherman\\Desktop\\Sklep\\Sklep.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Professional\\.nuget\\packages\\newtonsoft.json\\13.0.2-beta3\\newtonsoft.json.13.0.2-beta3.nupkg.sha512"
+    "C:\\Users\\aherman\\.nuget\\packages\\newtonsoft.json\\13.0.2-beta3\\newtonsoft.json.13.0.2-beta3.nupkg.sha512"
   ],
   "logs": []
 }
