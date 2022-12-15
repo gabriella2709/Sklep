@@ -5,18 +5,21 @@ namespace Sklep;
 
 public class Kasa
 {
+    public Kasa()
+    {
+        CreateProducts();
+    }
 
 
-    public List<Product>? AllProducts { get; set; }
+    public List<Product> AllProducts { get; set; }
 
-    public void CreateProduct()
+    private void CreateProducts()
     {
         var path = $"{Directory.GetCurrentDirectory()}\\products.json";
         var json = File.ReadAllText(path);
         AllProducts = JsonConvert.DeserializeObject<List<Product>>(json);
 
     }
-
 
     public void DisplayProducts()
     {
@@ -26,7 +29,4 @@ public class Kasa
             Console.WriteLine(p.Id + " | " + p.Nazwa);
         }
     }
-
-
-
 }

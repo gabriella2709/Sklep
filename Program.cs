@@ -1,83 +1,65 @@
-﻿
-using Sklep;
-
+﻿using Sklep;
+using System.Data;
 
 var kasa = new Kasa();
-kasa.CreateProduct();
+
 var menu = new Menu();
+var basket = new List<Product>();
 
-// The 'Wybrane' class is completely unnecessary.
-// After all, the shopping cart (paragon) contains the same products as in the store.
-// One 'Product' class is enough!!!
-var wybrane = new List<Product>();
-var products = kasa.AllProducts;
-menu.Start();
 
-while (true)
+
+var answer = menu.Start();
+if (menu.IsCorrect(answer))
 {
-    if (menu.IsCorrect(menu.answer!))
-    {
-        Console.Clear();
-        menu.Start();
-    }
-    if (!menu.IsCorrect(menu.answer!) && menu.answer == "1")
-    {
-        Console.Clear();
+    if (answer == "1")
         kasa.DisplayProducts();
-        menu.Start();
-    }
-
-    if (!menu.IsCorrect(menu.answer!) && menu.answer == "2")
+    else if (answer == "3")
+        return;
+    else
     {
+        Product product = new Product();
+        while(product != null)
+        {        
+            Console.WriteLine("PODAJ KOD PRODUKTU");
+            var barcode = Console.ReadLine();
+            if (barcode == "P" || barcode == "p")
+                break;
+
+            product = kasa.AllProducts.FirstOrDefault(x => x.Id == barcode);
+            if (product == null)
+            {
+                Console.WriteLine("NIEPRAWIDŁOWY KOD PRODUKTU");
+                return;
+            }    
+            else
+            {
+                Console.Clear();
+                Console.WriteLine(product.Nazwa + "||" +  Math.Round(product.Cena_netto, 2) + " zł");
+                basket.Add(product);
+            }
+        }
+
         Console.Clear();
-        menu.Zakup();
-        if (menu.answer == "P")
+        Console.WriteLine("___________________________________________________");
+        Console.WriteLine("PARAGON");
+        Console.WriteLine("DATA ZAKUPU: " + DateTime.Now.ToString("F"));
+        Console.WriteLine("___________________________________________________");
+        Console.WriteLine();
+        foreach (var p in basket)
         {
-
-                // We must have two values: cena_laczna (this is a sum of all values of cena_brutto of products in paragon)
-                // and total_vat (this is a sum of all values of VAT of products in paragon)
-                // So we have to options to choose:
-                // 1 option (using loop)
-                decimal cena_laczna = 0;
-                decimal total_vat = 0;
-                foreach (var p in wybrane)
-                {
-                    cena_laczna += p.Cena_brutto;
-                    total_vat += p.VAT;
-                }
-                
-                // 2 option (using 'Sum' method)
-                cena_laczna = wybrane.Sum(w => w.Cena_brutto);
-                total_vat = wybrane.Sum(w => w.VAT);
-                
-                // Please choose one of those options (whatever you want)
-
-        }
-        else if (menu.answer == "p")
-        {
-            System.Console.WriteLine(wybrane);
-            break;
+            Console.WriteLine(p.Nazwa + "||" + Math.Round(p.Cena_netto, 2) + " zł");
         }
 
-    }
+        var total = Math.Round(basket.Sum(x => x.Cena_brutto), 2);
+        var vat = Math.Round(basket.Sum(x => x.VAT), 2);
+        System.Console.WriteLine("___________________________________________________");
+        System.Console.WriteLine("DO ZAPŁATY: " + total + " zł");
+        System.Console.WriteLine("W TYM VAT: " + vat + " zł");
+        System.Console.WriteLine("___________________________________________________");
 
-    var AllProducts = kasa.AllProducts!;
-
-    foreach (var p in AllProducts)
-    {
-        if (menu.answer == p.Id)
-        {
-
-            // new Wybrane().Nazwa = p.Nazwa;
-            // new Wybrane().Podatek = p.Cena_netto * 0.23m;
-            // new Wybrane().Cena_brutto = Math.Round(p.Cena_netto + new Wybrane().Podatek, 2);
-            // Console.WriteLine(p.Nazwa);
-            // Console.WriteLine("CENA ŁĄCZNA: " + new Wybrane().Cena_brutto + " zł");
-            // wybrane.Add(new Wybrane());
-            // menu.Zakup();
-
-
-        }
     }
 }
-
+else
+{
+    Console.WriteLine("Nieprawidłowy klawisz");
+}

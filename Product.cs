@@ -2,8 +2,8 @@
 
 public class Product
 {
-	public string? Id { get; set; }
-	public string? Nazwa { get; set; }
+	public string Id { get; set; }
+	public string Nazwa { get; set; }
 	public decimal Cena_netto { get; set; }
 
 	
@@ -16,6 +16,6 @@ public class Product
 	// We add the 'Cena_brutto' property, which we can calculate automatically (cena netto plus VAT)
 	public decimal Cena_brutto
 	{
-		get { return Cena_netto * 1.23m; }
+		get { return Cena_netto + VAT; }
 	}
 }
